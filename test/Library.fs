@@ -20,7 +20,7 @@ module Multiply =
     
 module Proc =
     let reduce<'tr, 't when 'tr : struct  and 'tr : (new: unit -> 'tr) and 'tr :> SMnd<'t>> (a: 't seq) =
-        let instance : SMnd<'t> = Unchecked.defaultof<'tr> :> SMnd<'t>;
+        let instance  = Unchecked.defaultof<'tr>;
         a |> Seq.fold (instance.Sum) (instance.Null)
 
 //let a = Proc.reduce<Multiply.ProductMonoid, _> [1;2;3;4]
